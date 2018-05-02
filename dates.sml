@@ -71,22 +71,25 @@ fun date_to_string(date : int*int*int) =
 (*  number_before_reaching_sum(15,[10, 2, 3, 4, 5, 6, 7, 8]); *)
 
 
-
-fun number_before_reaching_sum(sum : int, ms : int list) =
-    if null ms
+fun number_before_reaching_sum(sum : int, ns : int list) =
+    if null ns
     then 0
-    else 
-      let
-        val sumb4 = (hd ms)
-        val sumaftr = sumb4 + (hd (tl ms))
-          val count = 0	  
-      in
-          if (hd ms) >= sum
-	  then count + 1
-	  else if sum > sumb4 andalso sumb4 + number_before_reaching_sum(sum, (tl ms)) < sum
-        then count + 1
-        else count
-				end
+    else
+	let
+	    val count = 0
+	in
+	    if (sum  - (hd ns)) > 0 then count + 1 + number_before_reaching_sum(sum - (hd ns) , (tl ns))
+
+	    else count
+	end
+	    
+	    
+     
+	    
+	  
+	
+				
+			    
 
 
 
