@@ -84,7 +84,7 @@ fun number_before_reaching_sum(sum : int, ns : int list) =
 	end
 	    
 	    
-(* what_month(58, [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])*)
+(* what_month(58); *)
 
 fun what_month(day : int) = 
     let 
@@ -93,8 +93,39 @@ fun what_month(day : int) =
     in 
        month
     end
+(*)
+fun month_range(day1 : int, day2 : int) =
+    if day1 > day2
+    then []
+    else
+    let val diff = day2 - day1 + 1
+        val days = []
+        fun day1_to_day2(day1 : int, day2 : int, ds : int list) = 
+            if null ds
+            then []
+            else 
+                let
+                   val diff = day2 - day1 + 1
+                in 
+                  if day1 < day2 then (hd ds) =  day1 + day1_to_day2(day1 + 1, day2, (tail ds))
+                  else []
+                end
+    in
+      hd days = day1
 	    
-	  
+*)
+
+fun day1_to_day2(day1 : int, day2 : int) = 
+            if day1 > day2
+            then []
+            else
+                let
+                   val diff = day2 - day1 + 1
+                   val ds = [day1]                   
+                in                  
+                  if day1 <= day2 then day1::day1_to_day2(day1 + 1, day2)
+                  else []
+                end	  
 	
 				
 			    
