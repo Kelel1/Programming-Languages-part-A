@@ -84,7 +84,15 @@ fun number_before_reaching_sum(sum : int, ns : int list) =
 	end
 	    
 	    
-     
+(* what_month(58, [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])*)
+
+fun what_month(day : int) = 
+    let 
+        val months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        val month = number_before_reaching_sum(day, months) + 1
+    in 
+       month
+    end
 	    
 	  
 	
