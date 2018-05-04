@@ -109,10 +109,25 @@ fun month_range(day1 : int, day2 : int) =
       else months
     end 
 	    
-
+(*
+fun oldest(ds : (int*int*int) list) =
+    if null ds
+    then NONE 
+*)
+(*find_oldest([(54,6,8), (23,7,15), (188,5,4), (99,5,998)]); *)	
+fun find_oldest(ds : (int*int*int) list) = 
+    if null ds
+    then []
+    else 
+        let
+          val mds = []
+        in
+          if is_older(hd ds, hd (tl ds)) then hd ds :: mds
+          else find_oldest(tl ds)
+        end
 
 				
-			    
+		    
 
 
 
