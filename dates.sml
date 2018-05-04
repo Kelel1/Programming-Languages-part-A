@@ -1,11 +1,9 @@
 
-(*(int*int*int)*(int*int*int -> bool)*)
 fun is_older(date1 : int*int*int, date2 : int*int*int) =
     (#1 date1) < (#1 date2) orelse ((#1 date1) = (#1 date2) andalso (#2 date1) < (#2 date2))
     orelse ((#1 date1) = (#1 date2) andalso (#2 date1) = (#2 date2)
 							      andalso (#3 date1) < (#3 date2))	
-(* number_in_month([(45,10,23), (23,10,15), (8,7,6)], 10)*)	       
-(*(int*int*int list)*int -> int*)
+
 fun number_in_month(ds : (int*int*int) list, month : int) =
     if null ds
     then 0
@@ -15,8 +13,7 @@ fun number_in_month(ds : (int*int*int) list, month : int) =
 	     else count + number_in_month((tl ds), month)							 
 	 end
 	     
-(* number_in_months([(45,10,23), (23,10,15), (8,7,6)],[4, 10, 15]);*)
-(* (int*int*int list)*int list -> int *) 
+ 
 fun number_in_months(ds : (int*int*int) list, ms : int list) =
     if null ds orelse null ms
     then 0
@@ -26,8 +23,7 @@ fun number_in_months(ds : (int*int*int) list, ms : int list) =
 	 end		 
 
 
-(* (int*int*int list)*int -> (int*int*int list) *)
-(* dates_in_month([(54,10,13), (7,29,12), (18,10,19), (8,10,5)], 10)*)
+
 fun dates_in_month(ds : (int*int*int) list, month : int) =
     if null ds
     then []
@@ -37,8 +33,7 @@ fun dates_in_month(ds : (int*int*int) list, month : int) =
 	     else new_ds						    
 	 end
 
-(* (int*int*int) list * int list) -> (int*int*int) list *)
-(*  dates_in_months([(54,6,8), (23,7,15), (18,5,4), (99,5,998)],[6, 7, 8]) *)
+
 fun dates_in_months(ds : (int*int*int) list, ms : int list) =
     if null ds orelse null ms
     then []
@@ -48,7 +43,6 @@ fun dates_in_months(ds : (int*int*int) list, ms : int list) =
 	 end
 	     
 
-(*  get_nth([("Jan"),("Mar"),("Aug")],1); *)
 fun get_nth(sts : string list, nth : int) =
     if null sts
     then (hd [])
@@ -59,7 +53,7 @@ fun get_nth(sts : string list, nth : int) =
          end
 
 
-(* date_to_string((1988, 1, 3)); *)
+
 fun date_to_string(date : int*int*int) =
     let val months = [("January "), ("February "), ("March "), ("April "), ("May "),
 		      ("June "), ("July "), ("August "), ("September "), ("October "), ("November "), ("December ")]
@@ -68,7 +62,6 @@ fun date_to_string(date : int*int*int) =
     end
 	
 
-(*  number_before_reaching_sum(15,[10, 2, 3, 4, 5, 6, 7, 8]); *)
 
 
 fun number_before_reaching_sum(sum : int, ns : int list) =
@@ -84,7 +77,7 @@ fun number_before_reaching_sum(sum : int, ns : int list) =
 	end
 	    
 	    
-(* what_month(58); *)
+
 
 fun what_month(day : int) = 
     let 
